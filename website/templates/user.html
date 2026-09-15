@@ -17,5 +17,11 @@
     <p>New user? <a href="{{url_for('register')}}">Click here</a> to register.</p>
 </div>
 {% endif %}
+<!--for register form, shows user the link to login if they have an account-->
+{% if heading == 'Register' %}
+<div class="col-md-4">
+    <p>Already have an acocunt? <a href="{{url_for('login')}}">Click here</a> to login.</p>
+</div>
+{% endif %}
 
 {% endblock %}

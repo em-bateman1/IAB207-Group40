@@ -10,12 +10,13 @@ class LoginForm(FlaskForm):
 
  # this is the registration form
 class RegisterForm(FlaskForm):
+    #need to add missing information also required: street address, phone number, name
     user_name=StringField("User Name", validators=[InputRequired()])
     email = StringField("Email Address", validators=[Email("Please enter a valid email")])
     # linking two fields - password should be equal to data entered in confirm
     password=PasswordField("Password", validators=[InputRequired(),
-                  EqualTo('confirm', message="Passwords should match")])
-    confirm = PasswordField("Confirm Password")
+                  EqualTo('confirm', message="Passwords should match")]) #need to add password constraints (min&max lengths, required characters)
+    confirm = PasswordField("Confirm Password", validators=[InputRequired()])
 
     # submit button
     submit = SubmitField("Register")
