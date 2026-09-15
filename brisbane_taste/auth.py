@@ -36,7 +36,7 @@ def login(): #THIS SECTION IS MISSING A SESSION START
 
 def register():
     register_form = RegisterForm()
-    error = none
+    error = None
     if register_form.validate_on_submit():
         name = register_form.full_name
         username = register_form.user_name
