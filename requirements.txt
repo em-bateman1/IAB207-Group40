@@ -6,3 +6,6 @@ flask-login
 flask-sqlalchemy
 flask-wtf
 flask-bcrypt
+flask-migrate
+huggingface_hub
+openai
