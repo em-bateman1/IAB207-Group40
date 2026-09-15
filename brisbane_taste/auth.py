@@ -11,7 +11,7 @@ auth_bp = Blueprint('auth', __name__)
 # this is a hint for a login function
 @auth_bp.route('/login', methods=['GET', 'POST'])
 # view function
-def login():
+def login(): #THIS SECTION IS MISSING A SESSION START
     login_form = LoginForm()
     error = None
     if login_form.validate_on_submit():
@@ -27,8 +27,19 @@ def login():
             nextp = request.args.get('next') # this gives the url from where the login page was accessed
             print(nextp)
             if next is None or not nextp.startswith('/'):
-                return redirect(url_for('index'))
+                return redirect(url_for('index')) # redirects to home page
             return redirect(nextp)
         else:
             flash(error)
     return render_template('user.html', form=login_form, heading='Login')
+
+
+def register():
+    register_form = RegisterForm()
+    error = none
+    if register_form.validate_on_submit():
+        name = register_form.full_name
+        username = register_form.user_name
+        password = register_form.password #confirm password already validated
+        street_address = register_form.street_address
+        phone = register_form.phone
